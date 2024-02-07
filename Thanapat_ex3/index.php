@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THANAPAT</title>
     <?php require_once "setHead.php"?>
     <?php require_once "connect.php"?>
 </head>
@@ -25,13 +24,25 @@
                 </tr>
             </theab>
             <tbody>
-                <tr>
-                    <td>
-                        <a class="btn btn-primary btn-sm" href="#">แก้ไข</a>
-                        <a class="btn btn-danger btn-sm" href="#">ลบ</a>
-                    </td>
-                </tr>
+                <?php
+                    while ($row = $result->fetch_assoc()) {
+                        echo "
+                        <tr>
+                            <td>$row[id]</td>
+                            <td>$row[name]</td>
+                            <td>$row[email]</td>
+                            <td>$row[phone]</td>
+                            <td>$row[address]</td>
+                            <td>$row[created_At]</td>
+                            <td>
+                                <a class='btn btn-primary btn-sm' href='#'>แก้ไข</a>
+                                <a class='btn btn-danger btn-sm' href='#'>ลบ</a>
+                            </td>
+                        </tr>
+                        ";
+                    }?>
             </tbody>
+        
         </table>
     </div>
 </body>
